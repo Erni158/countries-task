@@ -1,15 +1,15 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface Continents {
+export interface Continent {
     name: string;
     code: string;
 }
   
 interface ContinentsData {
-    continents: Continents[];
+    continents: Continent[];
 }
 
 const GET_CONTINENTS = gql`
@@ -47,12 +47,10 @@ const Item = styled.div`
 
 export const Continents = () => {
     const { loading, error, data } = useQuery<ContinentsData>(GET_CONTINENTS);
-    const { code } = useParams<Omit<Continents, 'name'>>();
-
+    
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: (</p>
-    
-    console.log(data?.continents);
+ 
     return(
         <Wrapper>
             {data?.continents.map(({name, code}) => (
