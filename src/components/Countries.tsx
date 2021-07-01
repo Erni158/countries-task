@@ -66,8 +66,8 @@ export const Countries = () => {
 
   return(
     <CountriesStyle>
-      {data?.continent.countries.map(({name, emoji, languages}) => (
-        <CountryItem>
+      {data?.continent.countries.map(({name, emoji, languages}, index) => (
+        <CountryItem key={`${index}-${name}`}>
           <span><strong>name:</strong> {name}</span>
           <span><strong>emoji:</strong> {emoji}</span>
           <span><strong>language:</strong> {languages[0]?.name ?? 'none'}</span>
