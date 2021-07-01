@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Route, Switch, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { Continents } from './components/Continents';
 import { Countries } from './components/Countries';
 import styled from 'styled-components';
@@ -31,24 +31,25 @@ const Nav = styled.nav`
 
 const App = () => {
 
+
   return (
       <div className="App">
         <Router>
-          <Nav>
-            <ul>
-              <li>
-                <Link to="/continents">Continents</Link>
-              </li>
-            </ul>
-          </Nav>
-            <Switch>
-              <Route path='/continents'>
-                <Continents />
-              </Route>
-              <Route path='continents/:code'>
-                <Countries />
-              </Route>
-            </Switch>
+          <Route exact path='/'>
+            <Nav>
+              <ul>
+                <li>
+                  <Link to="/continents">Continents</Link>
+                </li>
+              </ul>
+            </Nav>
+          </Route>
+            <Route path='/continents'>
+              <Continents />
+            </Route>
+            <Route path='/continents/:code'>
+              <Countries />
+            </Route>
         </Router>
       </div>
   );
