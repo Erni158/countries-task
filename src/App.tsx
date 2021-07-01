@@ -30,8 +30,6 @@ const Nav = styled.nav`
 `;
 
 const App = () => {
-
-
   return (
       <div className="App">
         <Router>

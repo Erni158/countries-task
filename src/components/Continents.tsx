@@ -25,10 +25,22 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    border-bottom: 2px solid #000;
+    margin-bottom: 20px;
 
     a {
         color: black;
         text-decoration: none;
+
+        &:active {
+            color: blue;
+        }
+
+        &:focus {
+            color: blue;
+            font-weight: bold;
+            text-decoration: underline;
+        }
     }
 `
 
